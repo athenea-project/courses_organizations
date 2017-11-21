@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  mongodb:
+    image: aashreys/mongo-auth:latest
+    environment:
+      - AUTH=yes
+      - MONGODB_ADMIN_USER=admin
+      - MONGODB_ADMIN_PASS=kappaPass2017
+      - MONGODB_APPLICATION_DATABASE=cursos
+      - MONGODB_APPLICATION_USER=usuario
+      - MONGODB_APPLICATION_PASS=eseldePrueba
+    ports:
+      - "27017:27017"
