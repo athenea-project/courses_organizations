@@ -12,7 +12,7 @@ services:
     restart: always
     image: tomcat
     ports:
-      - "8091:8090"
+      - "8091:8080"
     volumes:
       - ../courses_organizations/target/courses_organizations-microservice-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/courses_organizations-microservice.war
     links:
