@@ -2,13 +2,20 @@ version: '2'
 
 services:
   mongodb:
-    image: aashreys/mongo-auth:latest
-    environment:
-      - AUTH=yes
-      - MONGODB_ADMIN_USER=admin
-      - MONGODB_ADMIN_PASS=kappaPass2017
-      - MONGODB_APPLICATION_DATABASE=cursos
-      - MONGODB_APPLICATION_USER=usuario
-      - MONGODB_APPLICATION_PASS=eseldePrueba
+    image: mongo:latest
+    restart: always
+    container_name: monodb_courses_organizations
     ports:
-      - "27017:27017"
+      - "27017:27018"
+# First node of the first Tomcat virtual host.
+  tomcat:
+    restart: always
+    image: tomcat
+    ports:
+      - "8080:8090"
+    volumes:
+      - ../courses/target/courses-microservice-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/courses-microservice.war
+    links:
+      - mongodb:mongodb
+    #depends_on:
+     # - "db"
