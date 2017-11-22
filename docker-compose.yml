@@ -6,13 +6,13 @@ services:
     restart: always
     container_name: mongodb_courses_organizations
     ports:
-      - "27018:27017"
+      - "27017:27018"
 # First node of the first Tomcat virtual host.
   tomcat:
     restart: always
     image: tomcat
     ports:
-      - "8091:8080"
+      - "8080:8091"
     volumes:
       - ../courses_organizations/target/courses_organizations-microservice-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/courses_organizations-microservice.war
     links:
