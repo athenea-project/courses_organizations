@@ -1,10 +1,10 @@
 version: '2'
 
 services:
-  mongodb:
+  mongodb_courses_organizations:
     image: mongo:latest
     restart: always
-    container_name: monodb_courses_organizations
+    container_name: mongodb_courses_organizations
     ports:
       - "27017:27018"
 # First node of the first Tomcat virtual host.
@@ -12,10 +12,10 @@ services:
     restart: always
     image: tomcat
     ports:
-      - "8080:8090"
+      - "8080:8091"
     volumes:
-      - ../courses/target/courses-microservice-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/courses-microservice.war
+      - ../courses_organizations/target/courses_organizations-microservice-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/courses_organizations-microservice.war
     links:
-      - mongodb:mongodb
+      - mongodb_courses_organizations:mongodb_courses_organizations
     #depends_on:
      # - "db"
