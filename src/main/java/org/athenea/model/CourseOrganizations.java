@@ -1,15 +1,12 @@
 package org.athenea.model;
 
 import java.util.Date;
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document (collection="courses_organizations")
 public class CourseOrganizations {
-
+  @Id
 	private String title;
 	private String description;
 	private Date date;
@@ -25,6 +22,9 @@ public class CourseOrganizations {
 		this.description = description;
 		this.date = date;
 		this.place = place;
+	}
+
+	public CourseOrganizations() {
 	}
 
 	public String getTitle() {

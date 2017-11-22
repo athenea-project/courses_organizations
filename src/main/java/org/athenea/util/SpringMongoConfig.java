@@ -17,7 +17,7 @@ public class SpringMongoConfig{
   MongoTemplate mongoTemplate() throws Exception {
 
     MongoTemplate mongoTemplate =
-        new MongoTemplate(new MongoClient("mongodb"),"athenea");
+        new MongoTemplate(new MongoClient("mongodb_courses_organizations"),"athenea");
     return mongoTemplate;
 
   }

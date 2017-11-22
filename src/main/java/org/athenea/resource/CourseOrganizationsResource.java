@@ -8,12 +8,9 @@ import io.swagger.annotations.ApiResponses;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.athenea.model.CourseOrganizations;
 import javax.ws.rs.core.Response;
 import org.athenea.model.CourseOrganizations;
 import org.athenea.repositories.CourseOrganizationsRepository;
@@ -32,7 +29,7 @@ public class CourseOrganizationsResource {
 
   private static final ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");   // Application context to load Spring
 
-  private static final CourseOrganizationsRepository courseRepo = (CourseOrganizationsRepository) context.getBean("CourseOrganizationsRepository");    // User bean to work with
+  private static final CourseOrganizationsRepository courseRepo = (CourseOrganizationsRepository) context.getBean("courseOrganizationsRepository");    // User bean to work with
 
   /**
    * Get all courses from DB.
@@ -42,30 +39,15 @@ public class CourseOrganizationsResource {
   @GET
   @Path("/all")
   @ApiResponses(value = {@ApiResponse(code = 500, message = "Error when connecting to server."),
-      @ApiResponse(code = 404, message = "No coursefound")})
+      @ApiResponse(code = 404, message = "No course found")})
   @ApiOperation(value = "Returns all courses.",
       response = CourseOrganizations.class)
   public List<CourseOrganizations> getAll() {
 
+    System.out.println("--------------------------------------------------------");
+    System.out.println(courseRepo);
+
     return courseRepo.findAll();
-  }
-
-  /**
-   * Get all courses for a tag
-   *
-   * @param tag
-   * @return a User object
-   */
-  @GET
-  @Produces(MediaType.APPLICATION_JSON)
-  @Path("/title")
-  @ApiResponses(value = {@ApiResponse(code = 500, message = "Error when connecting to server."),
-      @ApiResponse(code = 404, message = "No courses found")})
-  @ApiOperation(value = "Returns all courses for a title.",
-      response = CourseOrganizations.class)
-  public CourseOrganizations getCourseByTitle(@HeaderParam("title") String title) {
-
-    return courseRepo.findByTitle(title);
   }
 
   @POST
@@ -85,17 +67,9 @@ public class CourseOrganizationsResource {
 
     mongoOperation.save(course);
 
-    // Try to create User from data body
-    try {
-
-      return Response.status(200).entity("OK").build();
-
-      // Catch exception (wrong data) and return error
-    } catch (Exception e) {
-      return Response.status(403).entity("Bad data supplied.").build();
-    }
+    return Response.status(200).entity("OK").build();
   }
 
 
 
-  }
+}

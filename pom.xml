@@ -86,9 +86,9 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
         <configuration>
-          <url>http://localhost:8080/</url>
+          <url>http://localhost:8091/</url>
           <server>TomcatServer</server>
-          <path>/courses-microservice</path>
+          <path>/courses_organizations-microservice</path>
         </configuration>
       </plugin>
       <plugin>
