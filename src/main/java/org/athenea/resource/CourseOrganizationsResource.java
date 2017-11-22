@@ -58,7 +58,7 @@ public class CourseOrganizationsResource {
 	@ApiOperation(value = "Insert course in DB",
 	response = Response.class)
 	@ApiResponses(value = {@ApiResponse(code = 404, message = "Could't insert data")})
-	public Response insertUser(@ApiParam(required = true) CourseOrganizations course) {
+	public Response insertCourse(@ApiParam(required = true) CourseOrganizations course) {
 
 		//TODO: Properly handle different cases of DB working or not
 		// For Annotation
@@ -75,7 +75,6 @@ public class CourseOrganizationsResource {
 			return Response.status(403).encoding("Bad data supplied.").build();
 		}
 	}
-
 
 
 }

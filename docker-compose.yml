@@ -4,7 +4,7 @@ services:
   mongodb_courses_organizations:
     image: mongo:latest
     restart: always
-    container_name: mongodb_courses_organizations
+    container_name: "mongodb_courses_organizations"
     ports:
       - "27018:27017"
 # First node of the first Tomcat virtual host.
