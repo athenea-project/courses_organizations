@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document (collection="courses_organizations")
 public class CourseOrganizations {
-  @Id
+	@Id
 	private String title;
 	private String description;
 	private Date date;
@@ -23,6 +23,7 @@ public class CourseOrganizations {
 		this.date = date;
 		this.place = place;
 	}
+
 
 	public CourseOrganizations() {
 	}
