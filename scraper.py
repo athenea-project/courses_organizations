@@ -1,7 +1,7 @@
 import feedparser, json, pymongo
 
 d = feedparser.parse('http://www.spri.eus/euskadinnova/modulos/RSSGenerar.aspx?language=es&tematica=2,3,4,5&tipo=2')
-client = mongoClient()
+connection = pymongo.MongoClient("localhost:27017")
 db = client.athenea
 collection = db.courses_organizations
 #cursos = []
