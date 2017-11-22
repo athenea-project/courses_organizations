@@ -9,14 +9,14 @@ public class CourseOrganizations {
 	@Id
 	private String title;
 	private String description;
-	private Date date;
+	private String date;
 	private String place;
 
 	public CourseOrganizations(String title) {
 		this.setTitle(title);
 	}
 
-	public CourseOrganizations(String title, String description, Date date, String place) {
+	public CourseOrganizations(String title, String description, String date, String place) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -44,11 +44,11 @@ public class CourseOrganizations {
 		this.description = description;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
