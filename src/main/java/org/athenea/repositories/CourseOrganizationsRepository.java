@@ -1,7 +1,5 @@
 package org.athenea.repositories;
 
-import java.util.List;
-
 import org.athenea.model.CourseOrganizations;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
